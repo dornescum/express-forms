@@ -6,6 +6,31 @@ const cors = require('cors');
 const app = express();
 
 const PORT = 3000;
+let dbResults =[];
+
+
+let mysql      = require('mysql');
+let connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'me',
+  password : 'secret',
+  database : 'angular_db'
+});
+ 
+connection.connect();
+//  TODO  doar 3 connexiuni gratuite
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!  ! ?");
+    con.query("SELECT * FROM angular_db", function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+        dbResults = result;
+      });
+
+  });
+ 
+connection.end();
 
 const allData = [];
 
