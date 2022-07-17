@@ -17,10 +17,14 @@ app.get('/', (req, res)=>{
     // res.send("hellow from serve")
 })
 app.post('/enroll', (req, res)=>{
-    // console.log(req.body)
-    const {name, email, phone, topic, check} = req.body;
+    console.log(req.body)
+    // const {name, email, phone, topic, check} = req.body;
+    const {name, email} = req.body;
+
     const newData ={
-        name, email, phone, topic, check
+        // name, email, phone, topic, check
+        name, email
+
     }
     // console.log(name)
     allData.push(newData)
