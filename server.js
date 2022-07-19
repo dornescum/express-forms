@@ -36,6 +36,23 @@ app.post('/enroll', (req, res)=>{
 app.get('/enroll', (req, res)=>{
     res.status(200).send({data: allData})
 })
+
+// =============
+app.post('/reactive-builder', (req, res)=>{
+    console.log(req.body)
+    // const {name, email, phone, topic, check} = req.body;
+    const {name, password, confirmPassword} = req.body;
+
+    const newData ={name, password, confirmPassword }
+ 
+    allData.push(newData)
+    
+    res.status(200).send({data: allData})
+})
+app.get('/reactive-builder', (req, res)=>{
+    res.status(200).send({data: allData})
+})
+// ==============
 app.listen(PORT, function(){
     console.log(`server is listening on port ${PORT}`)
 })
